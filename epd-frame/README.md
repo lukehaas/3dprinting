@@ -9,3 +9,4 @@ Other components:
 - Sparkfun Battery Babysitter
 - Lipo
 - Magnets
+- Brass inserts + screws
