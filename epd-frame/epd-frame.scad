@@ -13,7 +13,7 @@ epdDsiplay = [114.9, 85.8];
 // epdDsiplay = [163.2, 97.92];
 
 frameWidth = 15;
-batterySize = [40, 60];
+batterySize = [38, 61];
 /*
   End
 */
@@ -82,7 +82,8 @@ module frameFront() {
 
 module frameInner() {
   origin = [innerOffset.x, innerOffset.y, 50];
-  inner = [epdOutline.x, epdOutline.y, 3];
+  inner = [epdOutline.x + 0.2, epdOutline.y + 0.2, 3];
+
   boardIndent = [70, 50, 2.4];
   batteryBoardIndent = [18, 12, 2.4];
   batterySupports = [
@@ -103,11 +104,11 @@ module frameInner() {
   }
 
   // battery supports
-  translate([origin.x + batterySize.y, origin.y + inner.y - batterySupports[0].y - 1, origin.z]) cube(batterySupports[0],center=false);
-  translate([origin.x + 1, origin.y + inner.y - batterySize.x, origin.z]) cube(batterySupports[1],center=false);
+  translate([origin.x + batterySize.y + 2, origin.y + inner.y - batterySupports[0].y - 1, origin.z + inner.z]) cube(batterySupports[0],center=false);
+  translate([origin.x + 1, origin.y + inner.y - batterySize.x - 2, origin.z + inner.z]) cube(batterySupports[1],center=false);
 
   // central support
-  translate([origin.x + (inner.x / 2) - (centralSupport.x / 2), origin.y + (inner.y / 2) + (centralSupport.y / 2), origin.z]) cube(centralSupport,center=false);
+  translate([origin.x + (inner.x / 2) - (centralSupport.x / 2), origin.y + (inner.y / 2) + (centralSupport.y / 2), origin.z + inner.z]) cube(centralSupport,center=false);
 
   // board support
   translate([origin.x+(exterior.x / 2) - 35.6 - boardSupport.x, origin.y + 1, origin.z + inner.z]) cube(boardSupport,center=false);
