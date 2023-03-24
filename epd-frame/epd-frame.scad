@@ -5,12 +5,12 @@ $fs = 0.4;
   Public variables:
 */
 // 5.65inch epd
-// epdOutline = [125.4, 99.5];
-// epdDsiplay = [114.9, 85.8];
+epdOutline = [125.4, 99.5];
+epdDsiplay = [114.9, 85.8];
 
 // 7.5inch epd 
-epdOutline = [170.2, 111.2];
-epdDsiplay = [163.2, 97.92];
+// epdOutline = [170.2, 111.2];
+// epdDsiplay = [163.2, 97.92];
 
 frameWidth = 15;
 batterySize = [40, 60];
@@ -21,7 +21,7 @@ batterySize = [40, 60];
 /*
   Private variables:
 */
-epdSpace = 0.6;
+epdSpace = 1;
 epd = [epdOutline.x + epdSpace, epdOutline.y + epdSpace, 1];
 depth = 16;
 exterior = [epdDsiplay.x + frameWidth * 2, epdDsiplay.y + frameWidth * 2, depth];
@@ -29,11 +29,12 @@ innerOffsetX = frameWidth - (epd.x - epdDsiplay.x)/2;
 innerOffset = [innerOffsetX, exterior.y - innerOffsetX - epd.y];
 epsilon = 0.01;
 screwRadius = 2.2;
+screwHoleEdgeGap = 5;
 screwHolePositions = [
-  [6,6],
-  [6,exterior.y-6],
-  [exterior.x-6,6],
-  [exterior.x-6,exterior.y-6]
+  [screwHoleEdgeGap,screwHoleEdgeGap],
+  [screwHoleEdgeGap,exterior.y-screwHoleEdgeGap],
+  [exterior.x-screwHoleEdgeGap,screwHoleEdgeGap],
+  [exterior.x-screwHoleEdgeGap,exterior.y-screwHoleEdgeGap]
 ];
 /*
   End
@@ -53,7 +54,7 @@ module measure(position, size, center) {
 */
 
 module frameFront() {
-  notch = [24, 1.9, depth - 1];
+  notch = [26, 1.9, depth - 1];
   portNotch = [35,10, 11];
   portHole = [9, 1, 4];
   difference() {
