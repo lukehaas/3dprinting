@@ -82,7 +82,7 @@ module frameFront() {
 
 module frameInner() {
   origin = [innerOffset.x, innerOffset.y, 50];
-  inner = [epdOutline.x + 0.2, epdOutline.y + 0.2, 3];
+  inner = [epdOutline.x + 0.4, epdOutline.y + 0.4, 3];
 
   boardIndent = [70, 50, 2.4];
   batteryBoardIndent = [18, 12, 2.4];
