@@ -91,7 +91,7 @@ module frameInner() {
     [batterySize.y - 5, 2, 10.7]
   ];
   centralSupport = [5, 5, 10.7];
-  boardSupport = [2, 40, 4];
+  boardSupport = [2, 30, 4];
   difference() {
     translate([origin.x, origin.y, origin.z]) cube(inner,center=false);
 
@@ -111,7 +111,7 @@ module frameInner() {
   translate([origin.x + (inner.x / 2) - (centralSupport.x / 2), origin.y + (inner.y / 2) + (centralSupport.y / 2), origin.z + inner.z]) cube(centralSupport,center=false);
 
   // board support
-  translate([origin.x+(exterior.x / 2) - 35.6 - boardSupport.x, origin.y + 1, origin.z + inner.z]) cube(boardSupport,center=false);
+  translate([origin.x+(exterior.x / 2) - 35.6 - boardSupport.x, origin.y + 18, origin.z + inner.z]) cube(boardSupport,center=false);
   // measure(origin, [61, 10, 10]);
 }
 
