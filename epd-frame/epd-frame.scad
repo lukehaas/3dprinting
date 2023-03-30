@@ -128,11 +128,11 @@ module frameBack() {
   screwHoleRadius = 1.85;
 
   module magnetSockets() {
-    translate([origin.x + (back.x/2) - magnetShellRadius - 3.5, origin.y + (back.y/2), origin.z+(magnetHeight/2)-epsilon])
-      cylinder(h=magnetHeight,r=magnetRadius,center=true);
+    translate([origin.x + (back.x/2) - magnetShellRadius - 1, origin.y + (back.y/2), origin.z-epsilon])
+      cylinder(h=magnetHeight,r=magnetRadius,center=false);
 
-    translate([origin.x + (back.x/2) + magnetShellRadius + 3.5, origin.y + (back.y/2), origin.z+(magnetHeight/2)-epsilon])
-      cylinder(h=magnetHeight,r=magnetRadius,center=true);
+    translate([origin.x + (back.x/2) + magnetShellRadius + 1, origin.y + (back.y/2), origin.z-epsilon])
+      cylinder(h=magnetHeight,r=magnetRadius,center=false);
   }
 
   difference() {
@@ -150,23 +150,21 @@ module frameBack() {
   }
   difference() {
     union() {
-      translate([origin.x + (back.x/2) - magnetShellRadius - 3.5, origin.y + (back.y/2), origin.z+back.z+magnetShellHeight/2])
-        cylinder(h=magnetShellHeight,r=magnetShellRadius,center=true);
+      translate([origin.x + (back.x/2) - magnetShellRadius - 1, origin.y + (back.y/2), origin.z+back.z])
+        cylinder(h=magnetShellHeight,r=magnetShellRadius,center=false);
 
-      translate([origin.x + (back.x/2) + magnetShellRadius + 3.5, origin.y + (back.y/2), origin.z+back.z+magnetShellHeight/2])
-        cylinder(h=magnetShellHeight,r=magnetShellRadius,center=true);
-
-
+      translate([origin.x + (back.x/2) + magnetShellRadius + 1, origin.y + (back.y/2), origin.z+back.z])
+        cylinder(h=magnetShellHeight,r=magnetShellRadius,center=false);
     }
     magnetSockets();
   }
-  translate([origin.x + (back.x/2) - magnetShellRadius - 3.5, origin.y + (back.y/2), origin.z+back.z])
-    cylinder(h=magnetHeight,r=magnetHoleRadius,center=true);
+  translate([origin.x + (back.x/2) - magnetShellRadius - 1, origin.y + (back.y/2), origin.z])
+    cylinder(h=magnetHeight,r=magnetHoleRadius,center=false);
 
-  translate([origin.x + (back.x/2) + magnetShellRadius + 3.5, origin.y + (back.y/2), origin.z+back.z])
-    cylinder(h=magnetHeight,r=magnetHoleRadius,center=true);
+  translate([origin.x + (back.x/2) + magnetShellRadius + 1, origin.y + (back.y/2), origin.z])
+    cylinder(h=magnetHeight,r=magnetHoleRadius,center=false);
 
-  // measure([origin.x + (back.x/2) - magnetShellRadius - 3.5, origin.y + (back.y/2), origin.z+back.z+(magnetShellHeight)-0.5], [1, 1, 1], true);
+  // measure([origin.x + (back.x/2) - magnetShellRadius - 3.5, origin.y + (back.y/2), origin.z+magnetHeight-0.1], [1, 1, 1.1]);
 }
 
 module main() {
